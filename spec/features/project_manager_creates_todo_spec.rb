@@ -10,8 +10,9 @@ feature 'Project manager creates TODO' do
   end
 
   scenario '- with description missing' do
-    
-    # expect user to see an error message
-
+    visit(new_todo_path)
+    fill_in('Description', with: '')
+    click_button('Save')
+      expect(page).to have_content('Please enter a description.')
   end
 end

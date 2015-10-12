@@ -12,7 +12,6 @@ describe Todo do
       it "requires the presence of a description" do
         expect(@first_todo.save).to eq(true)
         expect(@second_todo.save).to eq(false)
-        # expect TODO to not be saved
       end   
     end
   end
