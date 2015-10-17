@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 # Use bcrypt to encrypt passwords
 gem 'bcrypt', :require => 'bcrypt'
+# Use figaro to store credentials as ENV variables
+gem 'figaro', '1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,6 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development do
