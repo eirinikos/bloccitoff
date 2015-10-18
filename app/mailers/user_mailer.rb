@@ -1,9 +1,15 @@
 class UserMailer < ApplicationMailer
   default from: 'eirinikos@gmail.com'
 
-  def welcome_email(user)
+  def account_activation(user)
     @user = user
-    @url = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to Bloccitoff!!')
+    mail(
+      to: user.email,
+      subject: 'Please confirm your Bloccitoff account')
+  end
+
+  def password_reset
+    @greeting = "Hej!"
+    mail(to: "to@example.org")
   end
 end
