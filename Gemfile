@@ -57,3 +57,6 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'pry-rails'
+gem 'pry-nav'
+gem 'pry-stack_explorer'
