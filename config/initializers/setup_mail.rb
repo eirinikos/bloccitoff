@@ -1,4 +1,6 @@
 if Rails.env.development?
+# stops Rails from reading these mail settings in Production
+# and blocks Production email confirmation
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     address:          'smtp.sendgrid.net',
