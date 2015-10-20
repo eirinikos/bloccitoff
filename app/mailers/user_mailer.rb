@@ -8,8 +8,8 @@ class UserMailer < ApplicationMailer
       subject: 'Please confirm your Bloccitoff account')
   end
 
-  def password_reset
-    @greeting = "Hej!"
-    mail(to: "to@example.org")
+  def password_reset(user)
+    @user = user
+    mail(to: user.email, subject: "Bloccitoff password reset")
   end
 end

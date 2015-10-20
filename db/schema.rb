@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018072242) do
+ActiveRecord::Schema.define(version: 20151019201241) do
 
   create_table "todos", force: :cascade do |t|
     t.string   "description"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20151018072242) do
     t.datetime "activated_at"
     t.string   "remember_digest"
     t.string   "name"
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
   end
 
 end

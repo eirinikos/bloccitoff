@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation
 
-  attr_accessor :password, :remember_token, :activation_token
+  attr_accessor :password, :remember_token, :activation_token, :reset_token
 
   before_create :create_activation_digest
   before_save :encrypt_password
@@ -51,6 +51,24 @@ class User < ActiveRecord::Base
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
+  end
+
+  # sets the password reset attributes
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest, User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  # sends password reset email
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  # returns true if a password reset has expired
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   private
