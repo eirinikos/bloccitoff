@@ -1,2 +1,7 @@
 <h1><%= @user.name %>'s user profile</h1>
-<p>Member since </p>
+
+<h5>Member since:</h5>
+<p><%= @user.activated_at %></p>
+
+<h5>E-mail address:</h5>
+<p><%=@user.email %></p>
