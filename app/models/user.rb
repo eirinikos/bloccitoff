@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation
 
-  attr_accessor :password, :remember_token, :activation_token, :reset_token
+  attr_accessor :password, :remember_token, :activation_token, :reset_token, :activated_at
 
   before_create :create_activation_digest
   before_save :encrypt_password
