@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate(params[:session][:email], params[:session][:password])
       if user.activated?
-        log_in user
+        # render page for current_user
         redirect_to root_url, :notice => "Logged in!"
       else
         message = "Account not activated."
