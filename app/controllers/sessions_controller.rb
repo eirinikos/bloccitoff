@@ -3,8 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(params[:email], params[:password])
-    if user && User.authenticate(params[:email], params[:password])
+    if user = User.authenticate(params[:session][:email], params[:session][:password])
       if user.activated?
         log_in user
         redirect_to root_url, :notice => "Logged in!"

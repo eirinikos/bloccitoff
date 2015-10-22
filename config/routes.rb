@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   root :to => "users#new"
 
-  resources :users
+  get "profile" => "users#show", :as => "profile"
+  resources :users, except: [:show, :index]
   resources :sessions
 
   resources :account_activations, only: [:edit]
