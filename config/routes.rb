@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'items/create'
+
   get 'password_resets/new'
   get 'password_resets/edit'
 
@@ -13,6 +15,10 @@ Rails.application.routes.draw do
   root :to => "users#new"
 
   resources :users, except: [:show, :index]
+  resources :users do
+    resources :items, only: [:create]
+  end
+
   resources :sessions
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
