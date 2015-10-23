@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:show, :index]
   resources :users do
-    resources :items, only: [:create]
+    resources :items, only: [:new, :create]
   end
 
   resources :sessions
