@@ -4,5 +4,5 @@
 <h6>E-mail address: <%=@user.email %></h6><br />
 
 <h4>Things to do</h4>
-<%= render @items || "(Add some things here!)" %>
+<%= render @items %>
 <%= render 'items/form', locals: {user: @user, item: @item} %>
