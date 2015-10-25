@@ -23,6 +23,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @items = @user.items
+    @item = @user.items.build
   end
 
   private

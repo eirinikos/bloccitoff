@@ -4,13 +4,11 @@ Rails.application.routes.draw do
   get "log_out" => "sessions#destroy", :as =>"log_out"
 
   get "sign_up" => "users#new", :as => "sign_up"
-  get "users_show" => "users#show"
   get "profile" => "users#show", :as => "profile"
 
   root :to => "users#new"
 
-  resources :users, except: [:show, :index]
-  resources :users do
+  resources :users, except: [:show, :index] do
     resources :items, only: [:new, :create]
   end
 

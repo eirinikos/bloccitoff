@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       if user.activated?
         # render page for current_user
         log_in user
-        redirect_to root_url, :notice => "Logged in!"
+        redirect_to "/profile", :notice => "Logged in!"
       else
         message = "Account not activated."
         message += "Check your e-mail for the activation link."

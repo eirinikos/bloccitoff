@@ -1,0 +1,6 @@
+<% if current_user %>
+  <%= form_for [@user, @item] do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Add thing", class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
