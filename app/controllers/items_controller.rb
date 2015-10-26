@@ -6,9 +6,11 @@ class ItemsController < ApplicationController
   def create
     @item = current_user.items.new(items_param)
     if @item.save
-      redirect_to profile_path, notice: "Item has been saved."
+      redirect_to profile_path
+      flash[:notice] = "Item has been saved!"
     else
-      redirect_to profile_path, notice: "Item failed to save."
+      redirect_to profile_path
+      flash[:error] = "Please enter an item."
     end
   end
 

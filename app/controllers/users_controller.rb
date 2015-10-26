@@ -1,22 +1,23 @@
 class UsersController < ApplicationController
+  skip_before_action :current_user_present?, only: [:new, :create]
+
   def new
-    @user = User.new
+    if User.find_by(id: session[:user_id])
+      redirect_to root_url
+    else
+      @user = User.new
+    end
   end
 
   def create
     @user = User.new(user_params)
 
-    # respond_to do |format|
     if @user.save
       # tell UserMailer to send a account activation email after save
       UserMailer.account_activation(@user).deliver_now
-      flash[:info] = "Please check your e-mail to activate your account."
-      # format.html { redirect_to(root_url, notice: 'User was successfully created.') }
-      # format.json { render json: @user, status: :created, location: @user }
+      flash[:notice] = "Please check your e-mail to activate your account."
       redirect_to root_url
     else
-      # format.html { render action: 'new' }
-      # format.json { render json: @user.errors, status: :unprocessable_entity }
       render "new"
     end
   end

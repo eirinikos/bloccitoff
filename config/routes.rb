@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   get "profile" => "users#show", :as => "profile"
 
-  root :to => "users#new"
+  root to: "users#show"
 
   resources :users, except: [:show, :index] do
     resources :items, only: [:new, :create]

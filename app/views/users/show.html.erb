@@ -1,8 +1,8 @@
-<h1><%= @user.name %>'s user profile</h1><br />
+<h2><%= @user.name %>'s user profile</h2>
 
-<h6>Member since: <%= @user.activated_at %></h6>
-<h6>E-mail address: <%=@user.email %></h6><br />
+<small>Member since: <%= @user.activated_at %>
+<p>E-mail address: <%=@user.email %></p></small><br />
 
-<h4>Things to do</h4>
+<h4>Things to do...</h4>
 <%= render @items %>
 <%= render 'items/form', locals: {user: @user, item: @item} %>
