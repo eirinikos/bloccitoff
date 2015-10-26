@@ -4,14 +4,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @user = current_user
+    @item = current_user.items.new(items_param)
 
-    @item = @user.items.new(items_param)
-    @item.user_id = current_user.id
     if @item.save
-      redirect_to "/profile", notice: "Item has been saved."
+      redirect_to profile_path, notice: "Item has been saved."
     else
-      redirect_to "/profile", notice: "Item failed to save."
+      redirect_to profile_path, notice: "Item failed to save."
     end
   end
 
