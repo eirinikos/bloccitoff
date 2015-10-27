@@ -2,18 +2,26 @@ require 'faker'
 
 # create users
 
-8.times do
+3.times do
   User.create!(
-    name: Faker::Lorem.name,
-    email: Faker::Internet.email
+    name: Faker::Name.name,
+    email: "#{Faker::Team.creature}@gmail.com",
+    password: "foobar",
+    activated: true,
+    activated_at: Time.zone.now
     )
 end
+
+user = User.first.update_attributes!(
+  name: "Andrea",
+  email: "andrealankao@gmail.com",
+  password: "foobar")
 
 users = User.all
 
 # create items
 
-48.times do
+36.times do
   Item.create!(
     user: users.sample,
     name: Faker::Lorem.sentence
