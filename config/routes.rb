@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: "users#show"
 
   resources :users, except: [:show, :index] do
-    resources :items, only: [:new, :create]
+    resources :items, only: [:new, :create, :destroy]
   end
 
   resources :sessions

@@ -1,3 +1,4 @@
-<p>
-  <%= item.name %>
-</p>
+<%= content_tag :div, class: 'media', id: "item-#{item.id}" do %>
+  <%= link_to "", [@user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
+  <%= item.name %>    
+<% end %>
