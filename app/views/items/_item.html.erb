@@ -1,4 +1,6 @@
 <%= content_tag :div, class: 'media', id: "item-#{item.id}" do %>
   <%= link_to "", [@user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
-  <%= item.name %>    
+  <%= item.name %>
+  <h5 class="sub-list">
+    <small><%= item.days_left %> days left till self-destruction</small></h5>   
 <% end %>

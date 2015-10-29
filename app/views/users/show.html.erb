@@ -1,7 +1,7 @@
 <h2>Greetings, <%= @user.name %>!</h2>
 
 <div class="list">
-  <small>Member since: <%= @user.activated_at %>
+  <small>Member since: <%= @user.activated_at.to_date %>
   <p>E-mail address: <%=@user.email %></p></small>
 </div><br />
 
