@@ -18,14 +18,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.destroy
-      flash[:notice] = "\"#{@item.name}\" has been removed from your to-do list!"
-    else
-      flash[:error] = "\"#{@item.name}\" couldn't be removed."
-    end
-
-    respond_to do |format|
-      format.html
-      format.js
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 
