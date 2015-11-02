@@ -1,4 +1,4 @@
-if Rails.env.development?
+if Rails.env.development? || Rails.env.production?
 # stops Rails from reading these mail settings in Production
 # and blocks Production email confirmation
   ActionMailer::Base.delivery_method = :smtp
