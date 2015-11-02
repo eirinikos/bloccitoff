@@ -1,8 +1,8 @@
-<h2>Greetings, <%= @user.name %>!</h2>
+<h2>Greetings, <%= @user.name || @user.email %>!</h2>
 
 <div class="list">
   <small>Member since: <%= @user.activated_at.to_date %>
-  <p>E-mail address: <%=@user.email %></p></small>
+  <p>Update your info here.</p></small>
 </div><br />
 
 <h4>Here are the things you said you would do...</h4><br />
