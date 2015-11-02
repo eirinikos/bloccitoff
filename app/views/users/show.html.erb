@@ -5,13 +5,7 @@
   <p>E-mail address: <%=@user.email %></p></small>
 </div><br />
 
-<% if @user.items.count < 1 %>
-  <h4>Do something!</h4>
-<% elsif @user.items.count == 1 %>
-  <h4> Here's the only thing you said you would do...</h4>
-<% else %>
-  <h4>Here are the <body class='js-items-count'><%= pluralize(@user.items.count, 'thing') %></body> you said you would do...</h4><br />
-<% end %>
+<h4>Here are the things you said you would do...</h4><br />
 
 <div class="list">
   <%= render @items %>
