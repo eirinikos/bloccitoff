@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
+    @user = current_user
 
     if @item.destroy
       respond_to do |format|
