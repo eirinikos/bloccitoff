@@ -2,13 +2,12 @@
 
 <div class="list">
   <small>Member since: <%= @user.activated_at.to_date %>
-  <p>Update your info here.</p></small>
+  <p>Manage your account settings <%= link_to "here", edit_user_path(@user) %>.</p></small>
 </div><br />
 
 <h4>Here are the things you said you would do...</h4><br />
 
 <div class="list">
-  <%= render @items %>
-</div><br />
-
-<%= render 'items/form', locals: {user: @user, item: @item} %>
+  <%= render @user.items %><br />
+  <%= render 'items/form', locals: {user: @user, item: @item} %>
+</div>

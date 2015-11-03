@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
 
   before_create :create_activation_digest
   before_save :encrypt_password
+  before_update :encrypt_password
 
   validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
+  validates_presence_of :password
 
   validates_presence_of :email
   validates_uniqueness_of :email
@@ -66,7 +67,6 @@ class User < ActiveRecord::Base
   end
 
   # returns true if a password reset has expired
-
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end

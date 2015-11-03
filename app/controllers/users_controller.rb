@@ -24,8 +24,22 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @items = @user.items
     # @item = @user.items.new
+  end
+
+  def edit
+    @user = current_user
+  end
+  
+  def update
+    if current_user.update_attributes(user_params)
+      flash[:notice] = "Your profile has been updated!"
+      redirect_to root_url
+    else
+      flash[:error] = "Unable to update - please try again."
+      @user = current_user
+      render 'edit'
+    end
   end
 
   private

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       if user.activated?
         # render page for current_user
         log_in user
-        redirect_to root_url, :notice => "Logged in!"
+        redirect_to root_url, :notice => "Hello again!"
       else
         message = "Account not activated."
         message += "Check your e-mail for the activation link."
@@ -28,6 +28,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_url
-    flash[:notice] = "Logged out!"
+    flash[:notice] = "Goodbye!"
   end
 end
