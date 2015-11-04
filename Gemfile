@@ -63,3 +63,4 @@ gem 'pry-nav'
 gem 'pry-stack_explorer'
 gem 'bootstrap-sass'
 gem 'faker'
+gem 'whenever', :require => false
