@@ -30,14 +30,19 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
   end
-  
+
   def update
-    if current_user.update_attributes(user_params)
-      flash[:notice] = "Your profile has been updated!"
-      redirect_to root_url
+    @user = current_user
+    if User.authenticate(@user.email, params[:user][:current_password])
+      if @user.update_attributes(user_params)
+        flash[:notice] = "Your profile has been updated!"
+        redirect_to root_url
+      else
+        flash.now[:error] = "Oops, please try again."
+        render 'edit'
+      end
     else
-      flash[:error] = "Unable to update - please try again."
-      @user = current_user
+      flash.now[:error] = "Please enter your password."
       render 'edit'
     end
   end
