@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
   before_create :create_activation_digest
   before_save :encrypt_password
   before_update :encrypt_password
+  before_update :password_hash_present?
 
   validates_confirmation_of :password
-  validates_presence_of :password_hash
 
   validates_presence_of :email
   validates_uniqueness_of :email
@@ -72,6 +72,10 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def password_hash_present?
+    validates_presence_of :password_hash
+  end
 
   # creates & assigns the activation token and digest
   def create_activation_digest
