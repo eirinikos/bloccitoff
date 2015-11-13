@@ -2,5 +2,5 @@
   <%= link_to "", user_item_path(@user, item), method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
   <%= item.name %>
   <h5 class="sub-list">
-    <small><%= item.days_left %> days left till self-destruction</small></h5>   
+    <small><%= pluralize(item.days_left, "day") %> left till self-destruction</small></h5>   
 <% end %>
