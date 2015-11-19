@@ -1,7 +1,8 @@
 namespace :todo do
   desc "Deletes items older than seven days!!"
   task delete_items: :environment do
-    Item.where("created_at <= ?", Time.now - 7.days).destroy_all
+    destroyed = Item.where("created_at <= ?", Time.now - 7.days).destroy_all
+    puts "Destroyed #{destroyed.count} items"
   end
 
   # desc "Prints a greeting"
