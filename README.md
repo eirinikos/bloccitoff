@@ -8,7 +8,7 @@ Made with my mentor at [Bloc](http://bloc.io).
 ###Automatic item deletion
 In development, Bloccitoff relies on the [whenever](https://github.com/javan/whenever) gem to deploy the cron job that deletes old items (it executes at the top of every hour).
 
-In production, Bloccitoff relies on Heroku's trusty [Scheduler](https://devcenter.heroku.com/articles/scheduler).
+In production, Bloccitoff relies on Heroku's trusty [Scheduler](https://devcenter.heroku.com/articles/scheduler) add-on.
 
 ###Tracking by Blocmetrics
-Bloccitoff also includes some code that enables event tracking (in development) by [Blocmetrics](https://github.com/eirinikos/blocmetrics). [These lines](https://github.com/eirinikos/bloccitoff/blob/master/app/views/layouts/application.html.erb#L18-L35) enable tracking the number of page views, button clicks, nav tab clicks, item deletion clicks, and overall link clicks.
+Bloccitoff also includes some code that enables event tracking (in development) by [Blocmetrics](https://github.com/eirinikos/blocmetrics). [These lines](https://github.com/eirinikos/bloccitoff/blob/master/app/views/layouts/application.html.erb#L18-L35) let Blocmetrics track the number of page views, button clicks, nav tab clicks, item deletion clicks, and overall link clicks.
