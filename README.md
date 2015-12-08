@@ -5,6 +5,8 @@ Bloccitoff aims to keep to-do lists manageable and clutter-free by automatically
 
 Made with my mentor at [Bloc](http://bloc.io).
 
+I relied heavily on Railscasts' [Authentication from Scratch tutorial](http://railscasts.com/episodes/250-authentication-from-scratch), as well as the [Ruby on Rails Tutorial chapter on account activation and password reset](https://www.railstutorial.org/book/account_activation_password_reset). Many thanks to the authors of these learning resources!
+
 ###Automatic item deletion
 In development, Bloccitoff relies on the [whenever](https://github.com/javan/whenever) gem to deploy the cron job that deletes old items (it executes at the top of every hour).
 
